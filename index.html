@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CinemaHelp</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="header">
+            <h1 class="title">CinemaHelp</h1>
+        </header>
+        <div class="tasks-container">
+            <h2 class="tasks-title">Задачи:</h2>
+            <div class="task-list">
+                <!-- Карточка задачи -->
+                <div class="task-card">
+                    <div class="task-name">Угадай среди 5 поваров</div>
+                    <div class="task-detail">Нужно угадать 1 челика из 5 поваров</div>
+                    <!-- Пример для основного экрана -->
+                    <div class="task-detail">
+                        <img src="img/people.png" alt="User Icon">
+                        Участники: <span class="participant">@gm_tos</span>, <span class="participant">@eep</span>
+                    </div>
+
+                    <div class="task-detail">
+                        <img src="img/date.png" alt="Calendar Icon">
+                        28.09.2024
+                    </div>
+                    <div class="task-detail">
+                        <img src="img/place.png" alt="Location Icon">
+                        г. Москва, ул. Причники
+                    </div>
+                    <button class="participate-button">Участвую</button>
+                </div>
+                <!-- Конец карточки задачи -->
+
+                <!-- Дубликат карточки задачи для демонстрации скролла -->
+                <div class="task-card">
+                    <div class="task-name">Другая Задача</div>
+                    <div class="task-detail">Другое Описание</div>
+                    <div class="task-detail">
+                        <img src="img/people.png" alt="User Icon">
+                        Участники: <span class="participant">@gm_tos</span>, <span class="participant">@eep</span>
+                    </div>
+                    <div class="task-detail">
+                        <img src="img/date.png" alt="Calendar Icon">
+                        30.09.2024
+                    </div>
+                    <div class="task-detail">
+                        <img src="img/place.png" alt="Location Icon">
+                        г. Москва, ул. Новая
+                    </div>
+                    <button class="participate-button">Участвую</button>
+                </div>
+                <!-- Конец дубликата карточки задачи -->
+
+                <!-- Кнопка добавления задачи внутри скроллируемого списка -->
+                <div class="add-task-card">
+                    <button class="add-task-button">Добавить задачу</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Детальная страница задания -->
+        <div class="task-detail-container" id="taskDetailContainer" style="display: none;">
+            <h2>Угадай среди 5 поваров</h2>
+            <p>Нужно угадать 1 челика из 5 поваров</p>
+            <div class="task-info">
+                <div class="task-detail">
+                    <img src="img/people.png" alt="User Icon">
+                    Участники: <span class="participant">@gm_tos</span>, <span class="participant">@eep</span>
+                </div>
+                <div class="task-detail">
+                    <img src="img/date.png" alt="Calendar Icon">
+                    28.09.2024
+                </div>
+                <div class="task-detail">
+                    <img src="img/place.png" alt="Location Icon">
+                    г. Москва, ул. Причники
+                </div>
+            </div>
+            <button class="participate-button">Участвую</button>
+            <button class="back-button">Назад</button>
+        </div>
+        <!-- Конец детальной страницы задания -->
+    </div>
+    <!-- Этот блок добавляется в конец тега <body> -->
+    <div class="add-task-modal" id="addTaskContainer" style="display: none;">
+        <div class="modal-content">
+            <h2 class="modal-title">Добавление задачи</h2>
+            <form id="addTaskForm" class="add-task-form">
+                <input type="text" id="taskName" placeholder="Название" required>
+                <textarea id="taskDescription" placeholder="Описание"></textarea>
+                <input type="text" id="taskParticipants" placeholder="Участники">
+                <input type="date" id="taskDate" required>
+                <input type="text" id="taskLocation" placeholder="Место">
+                <div class="modal-buttons">
+                    <button type="submit" class="save-task-button">Сохранить</button>
+                    <button type="button" class="cancel-task-button" onclick="hideAddTaskModal()">Отменить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,283 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212; /* Фон всей страницы */
+}
+
+.app-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    color: #F5F5F5;
+    background-color: #1F1F1F; /* Фон контейнера приложения */
+    border-radius: 10px;/* Тень вокруг контейнера */
+    overflow: hidden; /* Убирает скроллбары если они не нужны */
+}
+
+.header {
+    background-color: #333;
+    text-align: center;
+    padding: 20px;
+}
+
+.title {
+    margin: 0;
+    color: #F5F5F5; /* Цвет текста заголовка */
+}
+
+.tasks-container {
+    padding: 20px;
+    padding-bottom: 60px; /* Отступ снизу для фиксированной кнопки */
+}
+
+.tasks-title {
+    color: #aaa;
+    margin-bottom: 20px;
+}
+
+.task-list {
+    max-height: calc(100vh - 250px); /* Высота списка, зависящая от высоты экрана */
+    overflow-y: auto; /* Скролл по вертикали при необходимости */
+}
+
+.task-card {
+    background-color: #2A2A2A;
+    border-radius: 20px; /* Закругленные края карточек */
+    padding: 15px;
+    margin-bottom: 10px; /* Отступ между карточками */
+}
+
+.task-name {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+.task-detail {
+    background-color: #2A2A2A;
+    padding: 10px;
+    border-radius: 10px; /* Закругленные края деталей задач */
+    margin-bottom: 10px;
+}
+
+.participate-button {
+    background-color: #34da81; /* Зеленый цвет кнопки */
+    border: none;
+    color: #F5F5F5;
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px; /* Закругленные края кнопки */
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 1em
+}
+
+.add-task-button {
+    position: fixed; /* Фиксированное позиционирование кнопки */
+    bottom: 15px; /* Расстояние от нижней части экрана */
+    left: 50%; /* Центрирование кнопки по горизонтали */
+    transform: translateX(-50%); /* Сдвиг на половину ширины кнопки для точного центрирования */
+    z-index: 10; /* Убедитесь, что кнопка находится поверх других элементов */
+    padding: 10px 20px; /* Паддинг для кнопки */
+    border-radius: 20px; /* Закругленные края кнопки */
+    background-color: #5C89FF;
+    color: #F5F5F5;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+/* Стили для скроллбара */
+.task-list::-webkit-scrollbar {
+    width: 8px; /* Ширина скроллбара */
+}
+
+.task-list::-webkit-scrollbar-track {
+    background: #2A2A2A; /* Цвет дорожки, на которой движется ползунок */
+}
+
+.task-list::-webkit-scrollbar-thumb {
+    background-color: #555; /* Цвет ползунка скроллбара */
+    border-radius: 4px; /* Закругление углов ползунка */
+    border: 2px solid #2A2A2A; /* Граница ползунка */
+}
+
+/* Код для Firefox */
+.task-list {
+    scrollbar-width: thin; /* "thin" для тонкого скроллбара или "none" чтобы скрыть */
+    scrollbar-color: #555 #2A2A2A; /* ползунок и дорожка */
+}
+
+.cancel-participation-button {
+    background-color: #FF4545; /* Зеленый цвет кнопки */
+    border: none;
+    color: #F5F5F5;
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px; /* Закругленные края кнопки */
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 1em
+}
+
+
+/* ... ваш предыдущий CSS код ... */
+
+.task-detail-container {
+    background-color: #2A2A2A;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% - 40px); /* Или другая фиксированная ширина */
+    max-width: 350px;
+    z-index: 100; /* Убедитесь, что контейнер находится над другими элементами */
+    display: none; /* Сначала скрыт */
+}
+
+.task-info-item {
+    background-color: #333;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.back-button {
+    background-color: #555; /* Серый цвет для кнопки "Назад" */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer; 
+    margin-top: 20px; /* Отступ сверху */
+}
+
+.task-info-item {
+    background-color: #333;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.task-info-item img {
+    margin-right: 10px; /* Отступ между иконкой и текстом */
+    width: 16px; /* Задаём размер для иконки */
+    height: 16px; /* Задаём размер для иконки */
+}
+
+.task-detail img {
+    vertical-align: middle;
+    margin-right: 8px;
+    width: 20px; /* Установите размер иконок на главной странице */
+    height: 20px; /* Установите размер иконок на главной странице */
+}
+
+/* Стиль для информационных элементов на странице деталей задачи */
+.task-info-item img {
+    vertical-align: middle;
+    margin-right: 8px;
+    width: 16px; /* Установите размер иконок на странице деталей */
+    height: 16px; /* Установите размер иконок на странице деталей */
+}
+
+.back-button-container {
+    display: flex;
+    justify-content: center; /* Выравнивание по горизонтали */
+    padding: 20px; /* Отступы вокруг кнопки */
+}
+
+.back-button {
+    background-color: #555; /* Серый цвет для кнопки "Назад" */
+    color: white;
+    border: none;
+    padding: 10px 157px;
+    border-radius: 20px;
+    cursor: pointer;
+
+}
+
+.participant {
+    color: #CB88FF; /* Красный цвет для имен участников */
+}
+
+
+
+
+/* Основные стили для модального окна */
+.add-task-modal {
+    background-color: #2A2A2A;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% - 40px); /* Или другая фиксированная ширина */
+    max-width: 350px;
+    z-index: 100; /* Убедитесь, что контейнер находится над другими элементами */
+    display: none; /* Сначала скрыт */
+}
+
+/* Стили для контента модального окна */
+.modal-content {
+    background-color: #333;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+/* Стилизация заголовка модального окна */
+.modal-title {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Стили для формы */
+.add-task-form input[type="text"],
+.add-task-form input[type="date"],
+.add-task-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box; /* Для правильного расчета ширины */
+}
+
+.add-task-form textarea {
+    height: 80px; /* Высота поля описания */
+}
+
+/* Стили для кнопок */
+.save-task-button {
+    background-color: #4CAF50; /* Зеленый цвет */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    margin-right: 10px; /* Отступ справа от кнопки */
+    cursor: pointer;
+}
+
+.cancel-task-button {
+    background-color: #f44336; /* Красный цвет */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Стили для области кнопок */
+.modal-buttons {
+    text-align: center;
+}
+
+/* При необходимости добавьте медиа запросы для адаптивного дизайна */
